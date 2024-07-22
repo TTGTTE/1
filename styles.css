@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+header {
+    background: url('hero.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+header .hero {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+nav {
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+nav.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+nav .navbar-brand {
+    font-weight: bold;
+    color: #333;
+}
+nav .nav-link {
+    color: #333;
+}
+section {
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 70px; /* Added margin to prevent content overlap */
+}
+section h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+section#services .service img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+section#services .service:hover img {
+    transform: scale(1.05);
+}
+section#projects .projects-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+section#projects .project {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+section#projects .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+section#contact .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+section#contact .contact-form label {
+    display: block;
+    margin: 15px 0 5px;
+}
+section#contact .contact-form input,
+section#contact .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+section#contact .contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+section#contact .contact-form button:hover {
+    background: #555;
+}
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}

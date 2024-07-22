@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЯмалЗолото</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <h1>Добро пожаловать в ЯмалЗолото</h1>
+            <p>Ваш надежный партнер в добыче золота</p>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <a class="navbar-brand" href="#">ЯмалЗолото</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Проекты</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="about" class="container">
+        <h2>О нас</h2>
+        <p>ЯмалЗолото является лидером в добыче золота более 50 лет...</p>
+    </section>
+    <section id="services" class="container">
+        <h2>Услуги</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service">
+                    <img src="exploration.jpg" alt="Exploration">
+                    <h3>Разведка</h3>
+                    <p>Мы предлагаем услуги по разведке золотых месторождений...</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service">
+                    <img src="extraction.jpg" alt="Extraction">
+                    <h3>Добыча</h3>
+                    <p>Эффективные методы добычи золота с использованием современных технологий...</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service">
+                    <img src="processing.jpg" alt="Processing">
+                    <h3>Переработка</h3>
+                    <p>Высококачественная переработка золотой руды...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="container">
+        <h2>Проекты</h2>
+        <div class="projects-gallery row">
+            <div class="col-md-4 project">
+                <img src="project1.jpg" alt="Project 1">
+                <p>Описание проекта 1</p>
+            </div>
+            <div class="col-md-4 project">
+                <img src="project2.jpg" alt="Project 2">
+                <p>Описание проекта 2</p>
+            </div>
+            <div class="col-md-4 project">
+                <img src="project3.jpg" alt="Project 3">
+                <p>Описание проекта 3</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="container">
+        <h2>Свяжитесь с нами</h2>
+        <form action="submit_form.php" method="post" class="contact-form">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 ЯмалЗолото. Все права защищены.</p>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            // GSAP Animations
+            gsap.from(".hero h1", { duration: 1, y: -50, opacity: 0 });
+            gsap.from(".hero p", { duration: 1, y: 50, opacity: 0, delay: 0.5 });
+
+            // ScrollMagic Animations
+            var controller = new ScrollMagic.Controller();
+            $('.service').each(function() {
+                var tween = gsap.from($(this), { duration: 1, y: 100, opacity: 0 });
+                new ScrollMagic.Scene({
+                    triggerElement: this,
+                    triggerHook: 0.9
+                })
+                .setTween(tween)
+                .addTo(controller);
+            });
+
+            // Navbar scroll effect
+            var headerHeight = $('header').outerHeight();
+            $(window).scroll(function() {
+                if ($(window).scrollTop() >= headerHeight) {
+                    $('#navbar').addClass('fixed-top');
+                } else {
+                    $('#navbar').removeClass('fixed-top');
+                }
+            });
+        });
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
